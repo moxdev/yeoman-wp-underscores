@@ -1,4 +1,11 @@
-// https://github.com/tutsplus/create-a-custom-yeoman-generator/blob/master/app/index.js
+/*
+*
+* Eaxmples:
+*
+* https://github.com/tutsplus/create-a-custom-yeoman-generator/blob/master/app/index.js
+*
+* https://github.com/yeoman/generator-generator
+*/
 
 'use strict';
 
