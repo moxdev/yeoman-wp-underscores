@@ -1,3 +1,5 @@
+// https://github.com/tutsplus/create-a-custom-yeoman-generator/blob/master/app/index.js
+
 'use strict';
 
 var generators = require('yeoman-generator'),
