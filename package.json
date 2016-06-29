@@ -1,0 +1,31 @@
+{
+  "name": "generator-yo-wp-underscores",
+  "version": "1.0.0",
+  "description": "Underscores generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moxdev/yeoman-wp-underscores.git"
+  },
+  "keywords": [
+    "WordPress",
+    "Underscores",
+    "_s",
+    "yeoman-generator"
+  ],
+  "author": "Shane Biggs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/moxdev/yeoman-wp-underscores/issues"
+  },
+  "homepage": "https://github.com/moxdev/yeoman-wp-underscores#readme",
+  "dependencies": {
+    "yeoman-generator": "^0.23.4"
+  },
+  "files": [
+    "generators/app"
+  ]
+}
