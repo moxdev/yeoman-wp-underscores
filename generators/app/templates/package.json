@@ -1,0 +1,20 @@
+{
+  "name": "",
+  "version": "1.0.0",
+  "description": "Underscores generator",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "WordPress",
+    "Underscores",
+    "_s",
+    "yeoman-generator"
+  ],
+  "author": "Shane Biggs",
+  "license": "",
+  "devDependencies": {
+    // can be used for npm installs like grunt, gulp
+  }
+}
