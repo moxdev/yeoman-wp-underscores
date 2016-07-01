@@ -1,12 +1,15 @@
 {
-  "name": "templates",
-  "homepage": "https://github.com/moxdev/yeoman-wp-underscores",
+  "name": "<%= appname %>",
+  "version": "<%= appversion %>",
   "authors": [
-    "Mox Biggs <moxdev1@gmail.com>"
+    "<%= appauthor %>",
+     "<%= appemail %>"
   ],
-  "description": "",
-  "main": "",
-  "license": "MIT",
+  "moduleType": [
+    "amd"
+  ],
+  "description": "<%= appdescription %>",
+  "license": "<%= applicense %>",
   "dependencies": {
     "bourbon": "^4.2.7",
     "neat": "^1.8.0"

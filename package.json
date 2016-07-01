@@ -1,7 +1,7 @@
 {
-  "name": "generator-yo-wp-underscores",
-  "version": "1.0.0",
-  "description": "Underscores generator",
+  "name": "<%= appname %>",
+  "version": "<%= appversion %>",
+  "description": "<%= appdescription %>",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,8 +16,8 @@
     "_s",
     "yeoman-generator"
   ],
-  "author": "Shane Biggs",
-  "license": "ISC",
+  "author": "<%= appauthor %>",
+  "license": "<%= applicense %>",
   "bugs": {
     "url": "https://github.com/moxdev/yeoman-wp-underscores/issues"
   },
