@@ -14,7 +14,7 @@
   ],
   "author": "Shane Biggs",
   "license": "",
-  "devDependencies": {
-    // can be used for npm installs like grunt, gulp
+  "dependencies": {
+    "grunt": "^1.0.1"
   }
 }

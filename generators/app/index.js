@@ -29,9 +29,32 @@ module.exports = generators.Base.extend( {
         this.fs.copy(sourceRoot + '/bower.json', destRoot + '/bower.json'),
         this.fs.copy(sourceRoot + '/package.json', destRoot + '/package.json')
     },
+    _getPrompts: function() {
+        var prompts = [
+            {
+                name: 'name',
+                message: 'Name of project?',
+                default: this.appname
+            },{
+                name: 'description',
+                message: 'description'
+            }
+        ];
+        return prompts;
+        this.log(prompts);
+    },
     initializing: function() {
         var message = chalk.yellow.bold("Welcome to the jungle baby, you gonna die!") + chalk.yellow(" Seriously you're gonna die...");
         this.log(yosay(message, { maxLength: 17 }));
+    },
+    prompting: function() {
+        var done = this.async();
+
+        this.prompt(this._getPrompts(), function(answers){
+            this.appname = answers.name;
+            this.appdescription = answers.description;
+            done();
+        }.bind(this));
     },
     configuring: function() {
         this.config.save();
@@ -40,8 +63,8 @@ module.exports = generators.Base.extend( {
         this._createProjectFileSystem();
     },
     install: function() {
-        // this.bowerInstall();
-        // this.npmInstall();
+        this.bowerInstall();
+        this.npmInstall();
     }
 });
 
