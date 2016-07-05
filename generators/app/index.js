@@ -12,7 +12,8 @@
 var generators = require('yeoman-generator'),
     mkdirp = require('mkdirp'), //https://www.npmjs.com/package/mkdirpd
     yosay = require('yosay'),
-    chalk = require('chalk');
+    chalk = require('chalk'),
+    _ = require('lodash');
 
 module.exports = generators.Base.extend({
     _createProjectFileSystem: function() {
@@ -47,6 +48,8 @@ module.exports = generators.Base.extend({
             this.appname = answers.name;
             this.appdescription = answers.description;
         }.bind(this));
+        this.log(appname);
+        this.log(appdescription);
     },
     configuring: function() {
         this.config.save();
