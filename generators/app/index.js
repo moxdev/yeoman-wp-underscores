@@ -12,23 +12,31 @@
 var generators = require('yeoman-generator'),
     mkdirp = require('mkdirp'), //https://www.npmjs.com/package/mkdirpd
     yosay = require('yosay'),
-    chalk = require('chalk'),
-    _ = require('lodash');
+    chalk = require('chalk');
+    // _ = require('lodash');
 
 module.exports = generators.Base.extend({
     _createProjectFileSystem: function() {
         var destRoot = this.destinationRoot(),
             sourceRoot = this.sourceRoot(),
-            appDir = destRoot + '/';
+            appDir = destRoot + '/',
+            templateContext = {
+                appname: this.appname,
+                appdescription: this.appdescription,
+                appversion: this.appversion,
+                appauthor: this.appauthor,
+                applicense: this.applicense
+            };
 
-        mkdirp(appDir + '/scripts');
-        mkdirp(appDir + '/test');
-        mkdirp(appDir + '/img');
+        mkdirp(appDir + '/fonts');
+        mkdirp(appDir + '/img';
+        mkdirp(appDir + '/css/vendor-css');
+        mkdirp(appDir + '/js/vendor-js');
 
         // fs.copy takes 2 arguements (source, destination) - http://computercraft.info/wiki/Fs.copy
         this.fs.copy(sourceRoot + '/.bowerrc', destRoot + '/.bowerrrc')
-        this.fs.copy(sourceRoot + '/bower.json', destRoot + '/bower.json'),
-            this.fs.copy(sourceRoot + '/package.json', destRoot + '/package.json')
+        this.fs.copyTpl(sourceRoot + '/bower.json', destRoot + '/bower.json', templateContext),
+            this.fs.copyTpl(sourceRoot + '/package.json', destRoot + '/package.json', templateContext)
     },
     initializing: function() {
         var message = chalk.yellow.bold("Welcome to the jungle baby, you gonna die!") + chalk.yellow(" Seriously you're gonna die...");
@@ -39,17 +47,37 @@ module.exports = generators.Base.extend({
             type: 'input',
             name: 'name',
             message: 'Your project name',
-            default: this.appname // Default to current folder name
+            default: this.appname, // Default to current folder name
+            store: true
         }, {
             type: 'input',
             name: 'description',
-            message: 'Description of generator'
+            message: 'Description of generator',
+            store: true
+        }, {
+            type: 'input',
+            name: 'version',
+            message: 'Version of generator',
+            default: '0.0.0',
+            store: true
+        }, {
+            type: 'input',
+            name: 'author',
+            message: 'App author',
+            store: true
+        }, {
+            type: 'input',
+            name: 'license',
+            message: 'App license',
+            default: 'MIT',
+            store: true
         }]).then(function(answers) {
             this.appname = answers.name;
             this.appdescription = answers.description;
+            this.appversion = answers.version;
+            this.appauthor = answers.author;
+            this.applicense = answers.license;
         }.bind(this));
-        this.log(appname);
-        this.log(appdescription);
     },
     configuring: function() {
         this.config.save();
